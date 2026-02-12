@@ -1,0 +1,16 @@
+{
+  "name": "my_portfolio_web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "npx tailwindcss -i ./input.css -o ./style.css --watch",
+    "build": "npx tailwindcss -i ./input.css -o ./style.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
