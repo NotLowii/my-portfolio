@@ -1,393 +1,442 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louie Cabardo | Portfolio</title>
-    <link rel="icon" type="image/png" href="images/louie_round.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
-                    },
-                    colors: {
-                        slate: {
-                            850: '#151e32',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
-                        accent: {
-                            400: '#38bdf8', // Sky 400
-                            500: '#0ea5e9', // Sky 500
-                            600: '#0284c7', // Sky 600
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louie Cabardo | Portfolio</title>
+    
+    <link rel="icon" type="image/png" href="images/louie_round.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e32', 900: '#0f172a', 950: '#020617' },
+                        accent: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out infinite -3s',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        /* Hide Scrollbar for App Frame */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .text-gradient {
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; border: 2px solid #0f172a; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white overflow-x-hidden">
 
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-sky-900/20 rounded-full blur-[100px]"></div>
-    </div>
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-sky-900/20 rounded-full blur-[100px]"></div>
+    </div>
 
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-md border-b border-white/5"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="flex items-center justify-between h-20">
-                
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-accent-400 transition duration-300">
-                        <img src="images/louie_round.png" alt="LC" class="object-cover w-full h-full" onerror="this.src='https://ui-avatars.com/api/?name=LC&background=0ea5e9&color=fff'">
-                    </div>
-                    <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-accent-400 transition">Louie.<span class="text-accent-500">Dev</span></span>
-                </a>
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-md border-b border-white/5 transition-opacity"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex items-center justify-between h-20">
+                
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-accent-400 transition duration-300 shadow-lg">
+                        <img src="images/louie_round.png" alt="LC" class="object-cover w-full h-full" onerror="this.src='https://ui-avatars.com/api/?name=LC&background=0ea5e9&color=fff'">
+                    </div>
+                    <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-accent-400 transition">Louie.<span class="text-accent-500">Dev</span></span>
+                </a>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-sm font-medium text-slate-400 hover:text-accent-400 transition-colors">About</a>
-                    <a href="#skills" class="text-sm font-medium text-slate-400 hover:text-accent-400 transition-colors">Stack</a>
-                    <a href="#projects" class="text-sm font-medium text-slate-400 hover:text-accent-400 transition-colors">Work</a>
-                    <a href="#contact" class="px-5 py-2.5 text-sm font-semibold text-slate-900 bg-accent-400 hover:bg-accent-300 rounded-full transition-all shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)]">
-                        Let's Talk
-                    </a>
-                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Stack</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Work</a>
+                    <a href="#contact" class="px-5 py-2.5 text-sm font-semibold text-slate-900 bg-accent-400 hover:bg-accent-300 rounded-full transition-all shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] hover:-translate-y-0.5">
+                        Let's Talk
+                    </a>
+                </div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 p-4 flex flex-col gap-2 md:hidden">
-            <a href="#about" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300">About</a>
-            <a href="#skills" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300">Stack</a>
-            <a href="#projects" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300">Work</a>
-            <a href="#contact" class="block px-4 py-3 rounded-lg bg-accent-500/10 text-accent-400 font-semibold">Contact</a>
-        </div>
-    </nav>
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-2 md:hidden shadow-2xl">
+            <a href="#about" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">About</a>
+            <a href="#skills" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">Stack</a>
+            <a href="#projects" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">Work</a>
+            <a href="#contact" class="block px-4 py-3 rounded-lg bg-accent-500/10 text-accent-400 font-bold mt-2 text-center border border-accent-500/20">Let's Talk</a>
+        </div>
+    </nav>
 
-    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            <div id="about" class="space-y-8 scroll-mt-32">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700/50 text-accent-400 text-xs font-mono tracking-wide">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
-                    </span>
-                    Available for Work
-                </div>
-                
-                <h1 class="text-5xl lg:text-7xl font-heading font-extrabold tracking-tight text-white leading-[1.1]">
-                    Building <br>
-                    <span class="text-gradient">Digital Depth.</span>
-                </h1>
-                
-                <div class="space-y-4 max-w-lg">
-                    <p class="text-lg text-slate-400 leading-relaxed">
-                        I'm <strong class="text-slate-200">Louie Cabardo</strong>, a Junior Developer passionate about bridging the gap between complex logic and intuitive design.
-                    </p>
-                    
-                    <div class="flex items-center gap-2 text-xl font-medium text-slate-300">
-                        <span>I specialize in</span>
-                        <span id="typewriter" class="text-accent-400 min-w-[120px] border-r-2 border-accent-400 pr-1 animate-pulse"></span>
-                    </div>
-                </div>
+    <section id="home" class="relative min-h-[100svh] flex items-center pt-28 pb-12 lg:pt-20 overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            
+            <div class="flex justify-center relative w-full lg:order-2">
+                 <div class="absolute w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-accent-500 to-indigo-600 opacity-20 blur-2xl animate-pulse-slow"></div>
+                 
+                 <div class="relative w-[260px] h-[320px] sm:w-[320px] sm:h-[400px] lg:w-80 lg:h-96 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl lg:rotate-3 group hover:rotate-0 transition duration-700 ease-out z-10">
+                    <img src="images/louie2.PNG" alt="Louie Cabardo" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 grayscale group-hover:grayscale-0" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop'">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 text-left">
+                        <div class="inline-block px-3 py-1 bg-slate-900/80 backdrop-blur-md rounded-lg border border-white/10 mb-2 shadow-lg">
+                            <p class="text-accent-400 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-bold">Status</p>
+                        </div>
+                        <p class="text-white font-bold text-base sm:text-lg leading-tight drop-shadow-md">BSIT Senior Student</p>
+                    </div>
+                 </div>
+            </div>
 
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#projects" class="group relative px-8 py-3.5 bg-slate-200 text-slate-900 rounded-lg font-bold transition-all hover:bg-white hover:scale-105">
-                        View Selected Work
-                    </a>
-                    <a href="https://github.com/NotLowii" target="_blank" class="px-8 py-3.5 bg-transparent border border-slate-700 text-white rounded-lg font-medium transition-all hover:border-slate-500 hover:bg-slate-800/50 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
+            <div id="about" class="space-y-6 lg:space-y-8 scroll-mt-32 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/60 border border-slate-700/50 text-accent-400 text-xs font-mono tracking-wide shadow-lg backdrop-blur-sm">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
+                    </span>
+                    Available for Work
+                </div>
+                
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-lg">
+                    Building <br class="hidden sm:block lg:block">
+                    <span class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Digital Depth.</span>
+                </h1>
+                
+                <div class="space-y-4 max-w-lg w-full">
+                    <p class="text-base sm:text-lg text-slate-400 leading-relaxed font-light px-2 lg:px-0">
+                        I'm <strong class="text-white font-medium drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Louie Cabardo</strong>, a Junior Developer passionate about bridging the gap between complex logic and intuitive design.
+                    </p>
+                    
+                    <div class="flex items-center justify-center lg:justify-start gap-2 text-lg sm:text-xl font-medium text-slate-300 bg-slate-800/30 w-fit mx-auto lg:mx-0 px-5 py-2.5 rounded-xl border border-white/5 shadow-inner">
+                        <span>I specialize in</span>
+                        <span id="typewriter" class="text-accent-400 min-w-[140px] border-r-2 border-accent-400 pr-1 animate-pulse font-semibold text-left"></span>
+                    </div>
+                </div>
 
-            <div class="hidden lg:flex justify-center relative">
-                 <div class="relative w-80 h-80 rounded-2xl bg-gradient-to-tr from-accent-500 to-indigo-600 rotate-6 opacity-20 blur-2xl absolute inset-0 animate-pulse-slow"></div>
-                 <div class="relative w-80 h-96 rounded-2xl overflow-hidden border border-white/10 shadow-2xl rotate-3 bg-slate-800 group hover:rotate-0 transition duration-500 ease-out">
-                    <img src="images/louie2.PNG" alt="Louie Cabardo" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 grayscale group-hover:grayscale-0" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop'">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
-                    <div class="absolute bottom-6 left-6">
-                        <p class="text-accent-400 font-mono text-xs mb-1">Status</p>
-                        <p class="text-white font-bold text-lg">BSIT Senior Student</p>
-                    </div>
-                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 lg:pt-4 w-full lg:w-auto px-2 lg:px-0">
+                    <a href="#projects" class="w-full sm:w-auto justify-center group relative px-8 py-4 sm:py-3.5 bg-slate-200 text-slate-900 rounded-xl font-bold transition-all hover:bg-white hover:-translate-y-1 shadow-xl hover:shadow-white/20 flex items-center">
+                        View Selected Work
+                    </a>
+                    <a href="https://github.com/NotLowii" target="_blank" class="w-full sm:w-auto justify-center px-8 py-4 sm:py-3.5 bg-slate-800/80 backdrop-blur-sm border border-slate-700 text-white rounded-xl font-medium transition-all hover:border-slate-500 hover:bg-slate-700/80 flex items-center gap-2 shadow-lg hover:-translate-y-1">
+                        <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
-    <section id="skills" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                <div>
-                    <h2 class="text-4xl font-heading font-bold text-white mb-4">Technical <span class="text-slate-600">Arsenal</span></h2>
-                    <p class="text-slate-400 max-w-md">My tech stack is focused on performance, scalability, and user experience.</p>
-                </div>
-                <div class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6"></div>
-            </div>
+    <section id="skills" class="py-24 relative reveal">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl font-heading font-bold text-white mb-4">Technical <span class="bg-gradient-to-r from-slate-400 to-slate-600 bg-clip-text text-transparent">Arsenal</span></h2>
+                    <p class="text-slate-400 max-w-md font-light">My tech stack is focused on performance, scalability, and seamless user experiences.</p>
+                </div>
+                <div class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6 shadow-[0_1px_0_rgba(255,255,255,0.05)]"></div>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card p-8 rounded-2xl hover:border-accent-500/30 transition duration-500 group">
-                    <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition">
-                        <svg class="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Core Backend</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-indigo-300 font-mono">Laravel</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-indigo-300 font-mono">MySQL</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-indigo-300 font-mono">REST API</span>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-indigo-500/30 transition duration-500 group shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors">Core Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">Laravel</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">MySQL</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">REST API</span>
+                    </div>
+                </div>
 
-                <div class="glass-card p-8 rounded-2xl hover:border-accent-500/30 transition duration-500 group">
-                    <div class="w-12 h-12 bg-sky-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-sky-500/20 transition">
-                        <svg class="w-6 h-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Client Side</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-sky-300 font-mono">Vue.js</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-sky-300 font-mono">React</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-sky-300 font-mono">Tailwind</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-sky-300 font-mono">JavaScript</span>
-                    </div>
-                </div>
+                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-sky-500/30 transition duration-500 group shadow-lg hover:shadow-sky-500/10 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-sky-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sky-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-sky-300 transition-colors">Client Side</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">Vue.js</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">React</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">Tailwind</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">JS</span>
+                    </div>
+                </div>
 
-                <div class="glass-card p-8 rounded-2xl hover:border-accent-500/30 transition duration-500 group">
-                    <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition">
-                        <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Mobile & AI</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-emerald-300 font-mono">Kotlin (Android)</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-emerald-300 font-mono">OpenAI API</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs text-emerald-300 font-mono">Rasa Pro</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-emerald-500/30 transition duration-500 group shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-emerald-300 transition-colors">Mobile & AI</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">Kotlin</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">OpenAI API</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">Rasa Pro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section id="projects" class="py-24 bg-slate-900/50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="text-4xl font-heading font-bold text-white mb-16 text-center relative z-10">Featured <span class="text-gradient">Work</span></h2>
+    <section id="projects" class="py-24 bg-slate-900/50 relative overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl font-heading font-bold text-white mb-16 text-center relative z-10">Featured <span class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Work</span></h2>
 
-            <div class="relative bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl relative z-10">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-500 to-indigo-600"></div>
-                
-                <div class="grid lg:grid-cols-12 gap-0 relative">
-                    
-                    <div class="lg:col-span-6 p-8 md:p-12 lg:p-16 flex flex-col justify-center order-2 lg:order-1 relative z-10">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-wider">Capstone 2026</span>
-                        </div>
+            <div class="relative bg-slate-900/80 backdrop-blur-lg border border-slate-800 rounded-[2.5rem] overflow-hidden shadow-2xl z-10">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-500 via-indigo-500 to-purple-600"></div>
+                
+                <div class="grid lg:grid-cols-12 gap-0 relative">
+                    
+                    <div class="lg:col-span-6 p-8 md:p-12 lg:p-16 flex flex-col justify-center order-2 lg:order-1 relative z-10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="px-4 py-1.5 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-widest border border-accent-500/20 shadow-inner">Capstone 2026</span>
+                        </div>
 
-                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Mental Health Assessment AI</h3>
-                        
-                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
-                            A comprehensive platform for college students to evaluate anxiety and depression securely. 
-                            Features a <strong class="text-slate-200">Rasa Pro AI chatbot</strong> for initial screening, 
-                            synchronized with a <strong class="text-slate-200">Laravel Admin Dashboard</strong> for counselors.
-                        </p>
+                        <h3 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6 tracking-tight">Health Assessment with AI</h3>
+                        
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8 font-light">
+                            A secure, comprehensive platform for college students to evaluate anxiety and depression. 
+                            Features a <strong class="text-slate-200 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] font-medium">Rasa Pro AI chatbot</strong> for initial screening, 
+                            perfectly synchronized with a robust <strong class="text-slate-200 font-medium">Laravel Admin Dashboard</strong> for counselor monitoring.
+                        </p>
 
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Laravel
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-                                <span class="w-2 h-2 rounded-full bg-purple-500"></span> Kotlin
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-                                <span class="w-2 h-2 rounded-full bg-green-500"></span> OpenAI
-                            </div>
-                        </div>
+                        <div class="flex flex-wrap gap-3 mb-10">
+                            <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 shadow-sm font-medium"><span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"></span> Laravel</div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 shadow-sm font-medium"><span class="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.6)]"></span> Kotlin</div>
+                            <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 shadow-sm font-medium"><span class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span> OpenAI</div>
+                        </div>
 
-                        <div class="flex gap-4">
-                            <a href="https://mhloucare.site/login" target="_blank" class="px-6 py-3 bg-accent-600 hover:bg-accent-500 text-white rounded-lg font-semibold transition shadow-lg shadow-accent-500/20 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                                Live Demo
-                            </a>
-                            <a href="https://github.com/NotLowii" target="_blank" class="px-6 py-3 border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 rounded-lg font-semibold transition">
-                                Source Code
-                            </a>
-                        </div>
-                    </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://mhloucare.site/login" target="_blank" class="px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 flex items-center gap-2 hover:-translate-y-1">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> 
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/NotLowii" target="_blank" class="px-6 py-3.5 border-2 border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-800/50 rounded-xl font-semibold transition-all hover:-translate-y-1">
+                                Source Code
+                            </a>
+                        </div>
+                    </div>
 
-                                        <div class="lg:col-span-6 bg-slate-800/50 flex items-center justify-center p-6 order-1 lg:order-2 border-l border-slate-800 relative min-h-[500px] lg:min-h-auto">
-                        
-                                                <div class="absolute inset-x-0 bottom-10 top-20 flex justify-center z-0 scale-105">
-                            <div class="relative w-full h-[120%] glass-card rounded-2xl border border-white/5 opacity-50 shadow-2xl p-2.5">
-                                                                <div class="flex items-center gap-1 mb-2.5">
-                                    <div class="w-2 h-2 rounded-full bg-slate-600"></div>
-                                    <div class="w-2 h-2 rounded-full bg-slate-600"></div>
-                                    <div class="w-2 h-2 rounded-full bg-slate-600"></div>
-                                </div>
-                                <img src="images/adminweb.png" alt="Admin Dashboard" class="w-full h-full object-cover rounded-lg blur-sm scale-[0.98]">
-                            </div>
-                        </div>
+                    <div class="lg:col-span-6 bg-slate-800/30 flex items-center justify-center p-6 lg:p-0 min-h-[500px] lg:min-h-[600px] order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-slate-800 relative overflow-hidden">
+                        
+                        <div class="absolute inset-x-0 bottom-12 top-24 flex justify-center z-0 scale-105">
+                            <div id="open-admin-modal" class="relative w-full max-w-[120%] h-full bg-slate-800/40 backdrop-blur-md border border-white/10 rounded-2xl opacity-40 shadow-2xl p-2.5 cursor-pointer hover:opacity-100 hover:scale-[1.02] hover:z-30 transition-all duration-500 group" title="Click to view full screen">
+                                
+                                <div class="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/30 rounded-2xl">
+                                    <div class="bg-slate-900/95 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-2xl border border-slate-600 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                        <svg class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                        View Dashboard
+                                    </div>
+                                </div>
 
-                                                <div class="absolute top-[15%] left-[10%] w-[190px] h-[390px] bg-slate-950 rounded-3xl border-4 border-slate-800 shadow-[0_0_60px_rgba(0,0,0,0.6)] overflow-hidden ring-1 ring-white/10 z-20 animate-float">
-                            <img src="images/appdashboard.jpg" alt="App Dashboard Screen" class="w-full h-full object-cover">
-                        </div>
+                                <div class="flex items-center gap-1.5 mb-3 px-1">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                                </div>
+                                
+                                <img src="images/adminweb.png" alt="Admin Dashboard" class="w-full h-[calc(100%-24px)] object-cover rounded-lg blur-[3px] group-hover:blur-none transition-all duration-500 border border-white/5">
+                            </div>
+                        </div>
 
-                                                <div class="absolute bottom-[10%] right-[10%] w-[190px] h-[390px] bg-slate-950 rounded-3xl border-4 border-slate-800 shadow-[0_0_60px_rgba(0,0,0,0.6)] overflow-hidden ring-1 ring-white/10 z-10 animate-float [animation-delay:-3s]">
-                            <img src="images/appmenu.jpg" alt="App Menu Screen" class="w-full h-full object-cover">
-                        </div>
+                        <div class="absolute top-[12%] left-[8%] sm:left-[15%] lg:left-[10%] w-[180px] sm:w-[200px] h-[380px] sm:h-[420px] bg-slate-950 rounded-[2.5rem] border-[6px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 z-20 animate-float pointer-events-none">
+                            <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-xl w-1/2 mx-auto z-10"></div> <img src="images/appdashboard.jpg" alt="App Dashboard Screen" class="w-full h-full object-cover">
+                        </div>
 
-                    </div>
+                        <div class="absolute bottom-[8%] right-[8%] sm:right-[15%] lg:right-[10%] w-[180px] sm:w-[200px] h-[380px] sm:h-[420px] bg-slate-950 rounded-[2.5rem] border-[6px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 z-10 animate-float-delayed pointer-events-none">
+                            <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-xl w-1/2 mx-auto z-10"></div> <img src="images/appmenu.jpg" alt="App Menu Screen" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer id="contact" class="border-t border-slate-800/50 bg-slate-950 pt-24 pb-12 reveal">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">Ready to create something amazing?</h2>
+            <p class="text-slate-400 mb-12 text-lg font-light">Currently open for internships and full-time junior opportunities.</p>
+            
+            <a href="mailto:cabardolouie@gmail.com" class="inline-flex items-center gap-3 text-xl md:text-3xl font-bold text-accent-400 hover:text-accent-300 transition-colors border-b-2 border-accent-500/30 hover:border-accent-400 pb-2 mb-16 group">
+                cabardolouie@gmail.com
+                <svg class="w-6 h-6 md:w-8 md:h-8 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
 
-    <footer id="contact" class="border-t border-slate-800 bg-slate-950 pt-20 pb-10">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-heading font-bold text-white mb-6">Ready to create something amazing?</h2>
-            <p class="text-slate-400 mb-10">Currently open for internships and full-time opportunities.</p>
-            
-            <a href="mailto:cabardolouie@gmail.com" class="inline-flex items-center gap-2 text-2xl font-bold text-accent-400 hover:text-accent-300 transition-colors border-b-2 border-accent-500/30 hover:border-accent-400 pb-1 mb-16">
-                cabardolouie@gmail.com
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://github.com/NotLowii" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/louie-cabardo-b31977358/" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="https://www.facebook.com/trfg.lowi" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
 
-            <div class="flex justify-center gap-8 mb-8">
-                <a href="https://github.com/NotLowii" class="text-slate-500 hover:text-white transition transform hover:scale-110">
-                    <span class="sr-only">GitHub</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/louie-cabardo-b31977358/" class="text-slate-500 hover:text-white transition transform hover:scale-110">
-                    <span class="sr-only">LinkedIn</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
-                </a>
-                <a href="https://www.facebook.com/trfg.lowi" class="text-slate-500 hover:text-white transition transform hover:scale-110">
-                    <span class="sr-only">Facebook</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-            </div>
+            <p class="text-slate-600 font-mono text-xs uppercase tracking-widest">
+                &copy; <span id="year"></span> Louie Cabardo. Built with intent.
+            </p>
+        </div>
+    </footer>
 
-            <p class="text-slate-600 font-mono text-sm">
-                &copy; <span id="year"></span> Louie Cabardo. Designed & Developed by me.
-            </p>
-        </div>
-    </footer>
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-950/95 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <button id="close-modal" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition-all focus:outline-none">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="max-w-[95vw] lg:max-w-[85vw] max-h-[90vh] relative transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="bg-slate-800 rounded-t-xl px-4 py-3 border border-slate-700 border-b-0 flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span class="ml-4 text-xs font-mono text-slate-400 hidden sm:block">mhloucare.site/admin</span>
+            </div>
+            <img src="images/adminweb.png" alt="Admin Dashboard Full View" class="w-full h-auto max-h-[80vh] object-cover sm:object-contain rounded-b-xl shadow-2xl border border-slate-700">
+        </div>
+    </div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <script>
+        // 1. Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Typewriter Effect
-        const textElement = document.getElementById("typewriter");
-        const texts = ["Junior Dev", "Laravel", "Android/Kotlin", "AI Integration"];
-        let count = 0;
-        let index = 0;
-        let currentText = "";
-        let letter = "";
+        // 2. Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
 
-        (function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            
-            textElement.textContent = letter;
-            if (letter.length === currentText.length) {
-                setTimeout(() => {
-                    count++;
-                    index = 0;
-                }, 2000); 
-            }
-            setTimeout(type, 150);
-        })();
+        // 3. Glass Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-xl', 'bg-slate-950/90');
+                nav.classList.remove('bg-slate-950/70');
+            } else {
+                nav.classList.remove('shadow-xl', 'bg-slate-950/90');
+                nav.classList.add('bg-slate-950/70');
+            }
+        });
 
+        // 4. Scroll Reveal Animation Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
 
-        const btn = document.getElementById("mobile-menu-btn");
-        const menu = document.getElementById("mobile-menu");
+        // 5. Hero Typewriter Effect
+        const words = ["Web Apps.", "Android Interfaces.", "AI Chatbots.", "Backend Systems."];
+        let i = 0, timer;
 
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
+        function typingEffect() {
+            let word = words[i].split("");
+            const loopTyping = () => {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    return setTimeout(deletingEffect, 2500); // Pause before deleting
+                };
+                timer = setTimeout(loopTyping, 100); // Typing speed
+            };
+            loopTyping();
+        }
 
+        function deletingEffect() {
+            let word = words[i].split("");
+            const loopDeleting = () => {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    i = (i + 1) % words.length; // Next word
+                    return setTimeout(typingEffect, 500); // Pause before typing next
+                };
+                timer = setTimeout(loopDeleting, 50); // Deleting speed
+            };
+            loopDeleting();
+        }
+        setTimeout(typingEffect, 1200); // Initial start delay
 
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
-    </script>
+        // 6. Lightbox Modal Logic for Admin Image
+        const modal = document.getElementById('image-modal');
+        const openBtn = document.getElementById('open-admin-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore background scrolling
+            }, 300);
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside the image or pressing ESC key
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
