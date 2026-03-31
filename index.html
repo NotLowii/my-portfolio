@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louie Cabardo | Portfolio</title>
+    <link rel="icon" type="image/png" href="images/louie_round.png">
     
-    <link rel="icon" type="image/png" href="images/louie_round.PNG">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
@@ -41,12 +41,17 @@
     </script>
 
     <style>
+        /* Pro Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; border: 2px solid #0f172a; }
         ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+        
+        /* Hide scrollbar for internal app images if needed */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Smooth Reveal Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
@@ -65,7 +70,7 @@
                 
                 <a href="#" class="flex items-center gap-3 group">
                     <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-accent-400 transition duration-300 shadow-lg">
-                        <img src="images/louie_round.PNG" alt="LC" class="object-cover w-full h-full" onerror="this.src='https://ui-avatars.com/api/?name=LC&background=0ea5e9&color=fff'">
+                        <img src="images/louie_round.png" alt="LC" class="object-cover w-full h-full" onerror="this.src='https://ui-avatars.com/api/?name=LC&background=0ea5e9&color=fff'">
                     </div>
                     <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-accent-400 transition">Louie.<span class="text-accent-500">Dev</span></span>
                 </a>
@@ -247,16 +252,9 @@
 
                     <div class="lg:col-span-6 bg-slate-800/30 flex items-center justify-center p-6 lg:p-0 min-h-[500px] lg:min-h-[600px] order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-slate-800 relative overflow-hidden">
                         
-                        <div class="absolute inset-x-0 bottom-12 top-24 flex justify-center z-0 scale-105">
-                            <div id="open-admin-modal" class="relative w-full max-w-[120%] h-full bg-slate-800/40 backdrop-blur-md border border-white/10 rounded-2xl opacity-40 shadow-2xl p-2.5 cursor-pointer hover:opacity-100 hover:scale-[1.02] hover:z-30 transition-all duration-500 group" title="Click to view full screen">
+                        <div id="open-admin-modal" class="absolute inset-x-0 bottom-12 top-24 flex justify-center z-0 scale-105 cursor-pointer peer group" title="Click to view full screen">
+                            <div class="relative w-full max-w-[120%] h-full bg-slate-800/40 backdrop-blur-md border border-white/10 rounded-2xl opacity-40 shadow-2xl p-2.5 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.02]">
                                 
-                                <div class="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/30 rounded-2xl">
-                                    <div class="bg-slate-900/95 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-2xl border border-slate-600 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                        <svg class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-                                        View Dashboard
-                                    </div>
-                                </div>
-
                                 <div class="flex items-center gap-1.5 mb-3 px-1">
                                     <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
                                     <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
@@ -267,13 +265,23 @@
                             </div>
                         </div>
 
-                        <div class="absolute top-[12%] left-[8%] sm:left-[15%] lg:left-[10%] w-[180px] sm:w-[200px] h-[380px] sm:h-[420px] bg-slate-950 rounded-[2.5rem] border-[6px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 z-20 animate-float pointer-events-none">
-                            <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-xl w-1/2 mx-auto z-10"></div> <img src="images/appdashboard.jpg" alt="App Dashboard Screen" class="w-full h-full object-cover">
+                        <div class="absolute top-[12%] left-[8%] sm:left-[15%] lg:left-[10%] w-[180px] sm:w-[200px] h-[380px] sm:h-[420px] bg-slate-950 rounded-[2.5rem] border-[6px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 z-20 animate-float pointer-events-none transition-opacity duration-300 peer-hover:opacity-60">
+                            <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-xl w-1/2 mx-auto z-10"></div>
+                            <img src="images/appdashboard.jpg" alt="App Dashboard Screen" class="w-full h-full object-cover">
                         </div>
 
-                        <div class="absolute bottom-[8%] right-[8%] sm:right-[15%] lg:right-[10%] w-[180px] sm:w-[200px] h-[380px] sm:h-[420px] bg-slate-950 rounded-[2.5rem] border-[6px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 z-10 animate-float-delayed pointer-events-none">
-                            <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-xl w-1/2 mx-auto z-10"></div> <img src="images/appmenu.jpg" alt="App Menu Screen" class="w-full h-full object-cover">
+                        <div class="absolute bottom-[8%] right-[8%] sm:right-[15%] lg:right-[10%] w-[180px] sm:w-[200px] h-[380px] sm:h-[420px] bg-slate-950 rounded-[2.5rem] border-[6px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/20 z-10 animate-float-delayed pointer-events-none transition-opacity duration-300 peer-hover:opacity-60">
+                            <div class="absolute top-0 inset-x-0 h-5 bg-slate-800 rounded-b-xl w-1/2 mx-auto z-10"></div>
+                            <img src="images/appmenu.jpg" alt="App Menu Screen" class="w-full h-full object-cover">
                         </div>
+
+                        <div class="absolute inset-0 flex items-center justify-center z-30 opacity-0 peer-hover:opacity-100 pointer-events-none transition-opacity duration-300 bg-slate-900/10">
+                            <div class="bg-slate-900/95 backdrop-blur-md text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-2xl border border-accent-500/50 transform translate-y-4 peer-hover:translate-y-0 transition-all duration-300">
+                                <svg class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                View Dashboard
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
