@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Work | Louie Cabardo</title>
+    <link rel="icon" type="image/png" href="images/louie_round.PNG">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e32', 900: '#0f172a', 950: '#020617' },
+                        accent: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white min-h-screen flex items-center">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-sm font-mono uppercase tracking-widest text-slate-500 mb-4">More Work</p>
+        <h1 class="text-4xl sm:text-5xl font-heading font-extrabold text-white mb-6">More projects coming soon.</h1>
+        <p class="text-slate-400 text-lg leading-relaxed mb-10">
+            I’m polishing a few case studies and will publish them here in the future.
+        </p>
+        <a href="index.html#projects" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent-500 text-slate-950 font-semibold hover:bg-accent-400 transition-all shadow-lg hover:-translate-y-0.5">
+            Back to Featured Work
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </a>
+    </div>
+</body>
+</html>
