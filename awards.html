@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards | Louie Cabardo</title>
+    <link rel="icon" type="image/png" href="images/round-profile.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e32', 900: '#0f172a', 950: '#020617' },
+                        accent: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white min-h-screen">
+    <main class="relative overflow-hidden">
+        <div class="fixed inset-0 z-0 pointer-events-none">
+            <div class="absolute top-[-12%] left-[-12%] w-[460px] h-[460px] bg-accent-500/10 rounded-full blur-[110px]"></div>
+            <div class="absolute bottom-[-10%] right-[-8%] w-[420px] h-[420px] bg-amber-500/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <section class="relative z-10 max-w-6xl mx-auto px-6 py-14 sm:py-20">
+            <div class="mb-10">
+                <a href="index.html#projects" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors mb-8">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                    Back to Portfolio
+                </a>
+                <p class="text-sm font-mono uppercase tracking-widest text-accent-400 mb-4">Awards</p>
+                <h1 class="text-4xl sm:text-6xl font-heading font-extrabold text-white mb-6">Graduation recognitions and capstone honors.</h1>
+                <p class="max-w-2xl text-slate-400 text-lg leading-relaxed">
+                    These awards mark my BSIT journey, internship performance, and the work behind my featured capstone project.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 mb-10">
+                <button onclick="openAwardImage('images/Awards.jpg')" class="group text-left bg-slate-900/70 border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:border-accent-400/40 transition-all">
+                    <img src="images/Awards.jpg" alt="Louie Cabardo awards" class="w-full h-[320px] sm:h-[420px] object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                </button>
+                <button onclick="openAwardImage('images/Awards-with-Diploma.jpg')" class="group text-left bg-slate-900/70 border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:border-accent-400/40 transition-all">
+                    <img src="images/Awards-with-Diploma.jpg" alt="Louie Cabardo awards with diploma" class="w-full h-[320px] sm:h-[420px] object-cover object-center group-hover:scale-[1.03] transition-transform duration-500">
+                </button>
+            </div>
+
+            <div class="bg-slate-900/70 border border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h2 class="text-2xl font-heading font-bold text-white mb-6">Awards Received</h2>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="rounded-2xl border border-amber-400/20 bg-amber-400/10 p-4 text-amber-100 font-semibold">Capstone Project of the Year Award</div>
+                    <div class="rounded-2xl border border-accent-400/20 bg-accent-400/10 p-4 text-accent-100 font-semibold">Panelist's Choice Award</div>
+                    <div class="rounded-2xl border border-indigo-400/20 bg-indigo-400/10 p-4 text-indigo-100 font-semibold">Best Lead Programmer Award</div>
+                    <div class="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-emerald-100 font-semibold">Best in Presentation Award</div>
+                    <div class="rounded-2xl border border-rose-400/20 bg-rose-400/10 p-4 text-rose-100 font-semibold">Internship Excellence Award</div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="award-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md">
+        <button onclick="closeAwardImage()" class="absolute top-5 right-5 rounded-full bg-slate-800/80 p-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <img id="award-lightbox-img" src="" alt="Award full view" class="max-h-[88vh] max-w-full rounded-2xl border border-slate-700 object-contain shadow-2xl">
+    </div>
+
+    <script>
+        function openAwardImage(src) {
+            const lightbox = document.getElementById('award-lightbox');
+            document.getElementById('award-lightbox-img').src = src;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAwardImage() {
+            const lightbox = document.getElementById('award-lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.getElementById('award-lightbox-img').src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('award-lightbox').addEventListener('click', (event) => {
+            if (event.target.id === 'award-lightbox') closeAwardImage();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeAwardImage();
+        });
+    </script>
+</body>
+</html>
