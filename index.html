@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louie Cabardo | Portfolio</title>
     <link rel="icon" type="image/png" href="images/round-profile.png">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -42,236 +45,483 @@
 
     <style>
         /* Pro Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; border: 2px solid #0f172a; }
-        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
-        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 4px;
+            border: 2px solid #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+
         /* Hide scrollbar for internal app images if needed */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
         /* Smooth Reveal Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Tools marquee */
-        .tools-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
-        .tools-track { display: flex; width: max-content; animation: tools-scroll 32s linear infinite; }
-        .tools-track--reverse { animation-direction: reverse; animation-duration: 38s; }
-        .tools-marquee:hover .tools-track { animation-play-state: paused; }
-        .tools-group { display: flex; gap: 16px; padding-right: 16px; }
-        .tool-pill { display: inline-flex; align-items: center; gap: 11px; white-space: nowrap; padding: 12px 22px; border: 1px solid rgba(14, 165, 233, .28); border-radius: 999px; background: rgba(15, 30, 55, .82); color: #8fb4d8; font-size: 15px; font-weight: 600; box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 8px 24px rgba(2,6,23,.24); }
-        .tool-icon { display: inline-flex; width: 25px; height: 25px; align-items: center; justify-content: center; border-radius: 7px; color: white; font-family: Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: -.5px; }
-        @keyframes tools-scroll { to { transform: translateX(-50%); } }
-        @media (prefers-reduced-motion: reduce) { .tools-track { animation: none; } }
+        .tools-marquee {
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .tools-track {
+            display: flex;
+            width: max-content;
+            animation: tools-scroll 32s linear infinite;
+        }
+
+        .tools-track--reverse {
+            animation-direction: reverse;
+            animation-duration: 38s;
+        }
+
+        .tools-marquee:hover .tools-track {
+            animation-play-state: paused;
+        }
+
+        .tools-group {
+            display: flex;
+            gap: 16px;
+            padding-right: 16px;
+        }
+
+        .tool-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            white-space: nowrap;
+            padding: 12px 22px;
+            border: 1px solid rgba(14, 165, 233, .28);
+            border-radius: 999px;
+            background: rgba(15, 30, 55, .82);
+            color: #8fb4d8;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035), 0 8px 24px rgba(2, 6, 23, .24);
+        }
+
+        .tool-icon {
+            display: inline-flex;
+            width: 25px;
+            height: 25px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 7px;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        @keyframes tools-scroll {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tools-track {
+                animation: none;
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white overflow-x-hidden">
+
+<body
+    class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white overflow-x-hidden">
 
     <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-sky-900/20 rounded-full blur-[100px]"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/20 rounded-full blur-[120px]">
+        </div>
+        <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-sky-900/20 rounded-full blur-[100px]">
+        </div>
     </div>
 
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-md border-b border-white/5 transition-opacity"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex items-center justify-between h-20">
-                
+
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-accent-400 transition duration-300 shadow-lg">
-                        <img src="images/round-profile.png" alt="LC" class="object-cover w-full h-full" onerror="this.src='https://ui-avatars.com/api/?name=LC&background=0ea5e9&color=fff'">
+                    <div
+                        class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-accent-400 transition duration-300 shadow-lg">
+                        <img src="images/round-profile.png" alt="LC" class="object-cover w-full h-full"
+                            onerror="this.src='https://ui-avatars.com/api/?name=LC&background=0ea5e9&color=fff'">
                     </div>
-                    <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-accent-400 transition">Louie.<span class="text-accent-500">Dev</span></span>
+                    <span
+                        class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-accent-400 transition">Louie.<span
+                            class="text-accent-500">Dev</span></span>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">About</a>
-                    <a href="#skills" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">What I Do</a>
-                    <a href="#experience" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Experience</a>
-                    <a href="#projects" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Work</a>
-                    <a href="#contact" class="px-5 py-2.5 text-sm font-semibold text-slate-900 bg-accent-400 hover:bg-accent-300 rounded-full transition-all shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] hover:-translate-y-0.5">
+                    <a href="#about"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">What
+                        I Do</a>
+                    <a href="#experience"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Experience</a>
+                    <a href="#projects"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Work</a>
+                    <a href="#contact"
+                        class="px-5 py-2.5 text-sm font-semibold text-slate-900 bg-accent-400 hover:bg-accent-300 rounded-full transition-all shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] hover:-translate-y-0.5">
                         Let's Talk
                     </a>
                 </div>
 
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-2 md:hidden shadow-2xl">
-            <a href="#about" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">About</a>
-            <a href="#skills" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">What I Do</a>
-            <a href="#experience" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">Experience</a>
-            <a href="#projects" class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">Work</a>
-            <a href="#contact" class="block px-4 py-3 rounded-lg bg-accent-500/10 text-accent-400 font-bold mt-2 text-center border border-accent-500/20">Let's Talk</a>
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-2 md:hidden shadow-2xl">
+            <a href="#about"
+                class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">About</a>
+            <a href="#skills"
+                class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">What
+                I Do</a>
+            <a href="#experience"
+                class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">Experience</a>
+            <a href="#projects"
+                class="block px-4 py-3 rounded-lg hover:bg-slate-800 text-slate-300 font-medium transition-colors">Work</a>
+            <a href="#contact"
+                class="block px-4 py-3 rounded-lg bg-accent-500/10 text-accent-400 font-bold mt-2 text-center border border-accent-500/20">Let's
+                Talk</a>
         </div>
     </nav>
 
     <section id="home" class="relative min-h-[100svh] flex items-center pt-28 pb-12 lg:pt-20 overflow-hidden reveal">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-            
+        <div
+            class="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+
             <div class="flex justify-center relative w-full lg:order-2">
-                 <div class="absolute w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-accent-500 to-indigo-600 opacity-20 blur-2xl animate-pulse-slow"></div>
-                 
-                 <div class="relative w-[260px] h-[320px] sm:w-[320px] sm:h-[400px] lg:w-80 lg:h-96 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl lg:rotate-3 group hover:rotate-0 transition duration-700 ease-out z-10">
-                    <img src="images/portfolio-profile.jpg" alt="Louie Cabardo" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 grayscale group-hover:grayscale-0" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop'">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity"></div>
-                    
-                    <div class="absolute bottom-6 left-6 right-6 text-left">
-                        <div class="inline-block px-3 py-1 bg-slate-900/80 backdrop-blur-md rounded-lg border border-white/10 mb-2 shadow-lg">
-                            <p class="text-accent-400 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-bold">Status</p>
-                        </div>
-                        <p class="text-white font-bold text-base sm:text-lg leading-tight drop-shadow-md">BSIT Graduate</p>
+                <div
+                    class="absolute w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-accent-500 to-indigo-600 opacity-20 blur-2xl animate-pulse-slow">
+                </div>
+
+                <div
+                    class="relative w-[260px] h-[320px] sm:w-[320px] sm:h-[400px] lg:w-80 lg:h-96 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl lg:rotate-3 group hover:rotate-0 transition duration-700 ease-out z-10">
+                    <img src="images/portfolio-profile.jpg" alt="Louie Cabardo"
+                        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 grayscale group-hover:grayscale-0"
+                        onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop'">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity">
                     </div>
-                 </div>
+
+                    <div class="absolute bottom-6 left-6 right-6 text-left">
+                        <div
+                            class="inline-block px-3 py-1 bg-slate-900/80 backdrop-blur-md rounded-lg border border-white/10 mb-2 shadow-lg">
+                            <p
+                                class="text-accent-400 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-bold">
+                                Status</p>
+                        </div>
+                        <p class="text-white font-bold text-base sm:text-lg leading-tight drop-shadow-md">BSIT Graduate
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div id="about" class="space-y-6 lg:space-y-8 scroll-mt-32 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
-                
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-lg mt-4 lg:mt-0">
+            <div id="about"
+                class="space-y-6 lg:space-y-8 scroll-mt-32 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
+
+                <h1
+                    class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-lg mt-4 lg:mt-0">
                     Building <br class="hidden sm:block lg:block">
-                    <span class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Digital Depth.</span>
+                    <span class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Digital
+                        Depth.</span>
                 </h1>
-                
+
                 <div class="space-y-4 max-w-lg w-full">
                     <p class="text-base sm:text-lg text-slate-400 leading-relaxed font-light px-2 lg:px-0">
-                        I'm <strong class="text-white font-medium drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Louie Cabardo</strong>, a BSIT graduate and aspiring Full-Stack Developer passionate about bridging the gap between complex logic and intuitive design.
+                        I'm <strong class="text-white font-medium drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">Louie
+                            Cabardo</strong>, a BSIT graduate and aspiring Full-Stack Developer passionate about
+                        bridging the gap between complex logic and intuitive design.
                     </p>
-                    
-                    <div class="flex items-center justify-center lg:justify-start gap-2 text-lg sm:text-xl font-medium text-slate-300 bg-slate-800/30 w-fit mx-auto lg:mx-0 px-5 py-2.5 rounded-xl border border-white/5 shadow-inner">
+
+                    <div
+                        class="flex items-center justify-center lg:justify-start gap-2 text-lg sm:text-xl font-medium text-slate-300 bg-slate-800/30 w-fit mx-auto lg:mx-0 px-5 py-2.5 rounded-xl border border-white/5 shadow-inner">
                         <span>I specialize in</span>
-                        <span id="typewriter" class="text-accent-400 min-w-[140px] border-r-2 border-accent-400 pr-1 animate-pulse font-semibold text-left"></span>
+                        <span id="typewriter"
+                            class="text-accent-400 min-w-[140px] border-r-2 border-accent-400 pr-1 animate-pulse font-semibold text-left"></span>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-y-5 gap-x-4 sm:gap-x-8 pt-6 mt-4 border-t border-slate-800/60 w-full text-left mx-auto lg:mx-0 px-2 lg:px-0">
+                    <div
+                        class="grid grid-cols-2 gap-y-5 gap-x-4 sm:gap-x-8 pt-6 mt-4 border-t border-slate-800/60 w-full text-left mx-auto lg:mx-0 px-2 lg:px-0">
                         <div>
-                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">Status</p>
+                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">
+                                Status</p>
                             <p class="text-sm sm:text-base text-white font-medium flex items-center gap-2">
                                 <span class="relative flex h-2.5 w-2.5">
-                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                                 </span>
                                 Open for work
                             </p>
                         </div>
                         <div>
-                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">Focus</p>
+                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">
+                                Focus</p>
                             <p class="text-sm sm:text-base text-white font-medium">Web & Mobile Dev</p>
                         </div>
                         <div>
-                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">Experience</p>
-                            <p class="text-sm sm:text-base text-white font-medium">BSIT Graduate <span class="block sm:inline text-slate-400 text-xs sm:text-sm font-normal">with OJT experience</span></p>
+                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">
+                                Experience</p>
+                            <p class="text-sm sm:text-base text-white font-medium">BSIT Graduate <span
+                                    class="block sm:inline text-slate-400 text-xs sm:text-sm font-normal">with OJT
+                                    experience</span></p>
                         </div>
                         <div>
-                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">Location</p>
+                            <p class="text-[11px] sm:text-xs text-slate-500 font-mono uppercase tracking-widest mb-1.5">
+                                Location</p>
                             <p class="text-sm sm:text-base text-white font-medium">Abuyog, Leyte</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 pt-4 lg:pt-4 w-full lg:w-auto px-2 lg:px-0">
-                    <a href="#projects" class="w-full sm:w-auto justify-center group relative px-8 py-4 sm:py-3.5 bg-slate-200 text-slate-900 rounded-xl font-bold transition-all hover:bg-white hover:-translate-y-1 shadow-xl hover:shadow-white/20 flex items-center">
+                    <a href="#projects"
+                        class="w-full sm:w-auto justify-center group relative px-8 py-4 sm:py-3.5 bg-slate-200 text-slate-900 rounded-xl font-bold transition-all hover:bg-white hover:-translate-y-1 shadow-xl hover:shadow-white/20 flex items-center">
                         View Selected Work
                     </a>
-                    <a href="awards.html" class="w-full sm:w-auto justify-center px-8 py-4 sm:py-3.5 bg-accent-500/10 backdrop-blur-sm border border-accent-400/40 text-accent-300 rounded-xl font-semibold transition-all hover:text-white hover:border-accent-300 hover:bg-accent-400/20 flex items-center gap-2 shadow-lg hover:-translate-y-1">
-                        <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14l-1.5 6.5A5.5 5.5 0 0112 14a5.5 5.5 0 01-5.5-4.5L5 3zM12 14v4m-4 3h8m-6-3h4"/></svg>
+                    <a href="awards.html"
+                        class="w-full sm:w-auto justify-center px-8 py-4 sm:py-3.5 bg-accent-500/10 backdrop-blur-sm border border-accent-400/40 text-accent-300 rounded-xl font-semibold transition-all hover:text-white hover:border-accent-300 hover:bg-accent-400/20 flex items-center gap-2 shadow-lg hover:-translate-y-1">
+                        <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3h14l-1.5 6.5A5.5 5.5 0 0112 14a5.5 5.5 0 01-5.5-4.5L5 3zM12 14v4m-4 3h8m-6-3h4" />
+                        </svg>
                         Awards
                     </a>
-                    <a href="https://github.com/NotLowii" target="_blank" class="w-full sm:w-auto justify-center px-8 py-4 sm:py-3.5 bg-slate-800/80 backdrop-blur-sm border border-slate-700 text-white rounded-xl font-medium transition-all hover:border-slate-500 hover:bg-slate-700/80 flex items-center gap-2 shadow-lg hover:-translate-y-1">
-                        <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    <a href="https://github.com/NotLowii" target="_blank"
+                        class="w-full sm:w-auto justify-center px-8 py-4 sm:py-3.5 bg-slate-800/80 backdrop-blur-sm border border-slate-700 text-white rounded-xl font-medium transition-all hover:border-slate-500 hover:bg-slate-700/80 flex items-center gap-2 shadow-lg hover:-translate-y-1">
+                        <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd"></path>
+                        </svg>
                         GitHub Profile
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
     <section id="skills" class="py-24 sm:py-32 relative overflow-hidden reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="relative text-center mb-20">
-                <p class="inline-flex items-center gap-3 text-xs text-teal-400 font-bold uppercase tracking-[0.35em] mb-4"><span class="w-7 h-0.5 bg-teal-400"></span> My Arsenal</p>
-                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-slate-100 tracking-tight">TOOLS I MASTER</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto mt-6 text-base sm:text-lg leading-relaxed">The industry-standard platforms I use to build, support, and deliver reliable digital experiences.</p>
+                <p
+                    class="inline-flex items-center gap-3 text-xs text-teal-400 font-bold uppercase tracking-[0.35em] mb-4">
+                    <span class="w-7 h-0.5 bg-teal-400"></span> My Arsenal</p>
+                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-slate-100 tracking-tight">
+                    TOOLS I MASTER</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mt-6 text-base sm:text-lg leading-relaxed">The
+                    industry-standard platforms I use to build, support, and deliver reliable digital experiences.</p>
             </div>
 
             <div class="relative -mx-6 lg:-mx-8 space-y-4">
-                <div class="tools-marquee"><div class="tools-track"><div class="tools-group">
-                    <span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Docs</span><span class="tool-pill"><span class="tool-icon bg-[#ea4335]">M</span>Gmail</span><span class="tool-pill"><span class="tool-icon bg-[#2d8cff] text-[8px]">ZOOM</span>Zoom</span><span class="tool-pill"><span class="tool-icon bg-[#15b77a]">G</span>Grammarly</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">△</span>Google Drive</span><span class="tool-pill"><span class="tool-icon bg-[#34a853]">▦</span>Google Sheets</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Workspace</span><span class="tool-pill"><span class="tool-icon bg-[#2f80ed]">&lt;/&gt;</span>Visual Studio Code</span><span class="tool-pill"><span class="tool-icon bg-[#3ddc84] text-slate-900">A</span>Android Studio SDK</span>
-                </div><div class="tools-group" aria-hidden="true">
-                    <span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Docs</span><span class="tool-pill"><span class="tool-icon bg-[#ea4335]">M</span>Gmail</span><span class="tool-pill"><span class="tool-icon bg-[#2d8cff] text-[8px]">ZOOM</span>Zoom</span><span class="tool-pill"><span class="tool-icon bg-[#15b77a]">G</span>Grammarly</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">△</span>Google Drive</span><span class="tool-pill"><span class="tool-icon bg-[#34a853]">▦</span>Google Sheets</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Workspace</span><span class="tool-pill"><span class="tool-icon bg-[#2f80ed]">&lt;/&gt;</span>Visual Studio Code</span><span class="tool-pill"><span class="tool-icon bg-[#3ddc84] text-slate-900">A</span>Android Studio SDK</span>
-                </div></div></div>
-                <div class="tools-marquee"><div class="tools-track tools-track--reverse"><div class="tools-group">
-                    <span class="tool-pill"><span class="tool-icon bg-[#2b579a]">W</span>Microsoft Word</span><span class="tool-pill"><span class="tool-icon bg-[#217346]">X</span>Microsoft Excel</span><span class="tool-pill"><span class="tool-icon bg-[#10a37f]">AI</span>ChatGPT / AI Tools</span><span class="tool-pill"><span class="tool-icon bg-[#8e75d1]">✦</span>Gemini AI</span><span class="tool-pill"><span class="tool-icon bg-black border border-white/40">N</span>Notion</span><span class="tool-pill"><span class="tool-icon bg-[#7b61ff]">◆</span>ClickUp</span><span class="tool-pill"><span class="tool-icon bg-[#18bfff]">◈</span>Airtable</span><span class="tool-pill"><span class="tool-icon bg-[#ff2d20]">L</span>Laravel</span><span class="tool-pill"><span class="tool-icon bg-[#00758f]">My</span>MySQL</span><span class="tool-pill"><span class="tool-icon bg-[#61dafb] text-slate-900">R</span>React</span>
-                </div><div class="tools-group" aria-hidden="true">
-                    <span class="tool-pill"><span class="tool-icon bg-[#2b579a]">W</span>Microsoft Word</span><span class="tool-pill"><span class="tool-icon bg-[#217346]">X</span>Microsoft Excel</span><span class="tool-pill"><span class="tool-icon bg-[#10a37f]">AI</span>ChatGPT / AI Tools</span><span class="tool-pill"><span class="tool-icon bg-[#8e75d1]">✦</span>Gemini AI</span><span class="tool-pill"><span class="tool-icon bg-black border border-white/40">N</span>Notion</span><span class="tool-pill"><span class="tool-icon bg-[#7b61ff]">◆</span>ClickUp</span><span class="tool-pill"><span class="tool-icon bg-[#18bfff]">◈</span>Airtable</span><span class="tool-pill"><span class="tool-icon bg-[#ff2d20]">L</span>Laravel</span><span class="tool-pill"><span class="tool-icon bg-[#00758f]">My</span>MySQL</span><span class="tool-pill"><span class="tool-icon bg-[#61dafb] text-slate-900">R</span>React</span>
-                </div></div></div>
+                <div class="tools-marquee">
+                    <div class="tools-track">
+                        <div class="tools-group">
+                            <span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Docs</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#ea4335]">M</span>Gmail</span><span
+                                class="tool-pill"><span
+                                    class="tool-icon bg-[#2d8cff] text-[8px]">ZOOM</span>Zoom</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#15b77a]">G</span>Grammarly</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#4285f4]">△</span>Google Drive</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#34a853]">▦</span>Google Sheets</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google
+                                Workspace</span><span class="tool-pill"><span
+                                    class="tool-icon bg-[#2f80ed]">&lt;/&gt;</span>Visual Studio Code</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#3ddc84] text-slate-900">A</span>Android
+                                Studio SDK</span>
+                        </div>
+                        <div class="tools-group" aria-hidden="true">
+                            <span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Docs</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#ea4335]">M</span>Gmail</span><span
+                                class="tool-pill"><span
+                                    class="tool-icon bg-[#2d8cff] text-[8px]">ZOOM</span>Zoom</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#15b77a]">G</span>Grammarly</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#4285f4]">△</span>Google Drive</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#34a853]">▦</span>Google Sheets</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google
+                                Workspace</span><span class="tool-pill"><span
+                                    class="tool-icon bg-[#2f80ed]">&lt;/&gt;</span>Visual Studio Code</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#3ddc84] text-slate-900">A</span>Android
+                                Studio SDK</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tools-marquee">
+                    <div class="tools-track tools-track--reverse">
+                        <div class="tools-group">
+                            <span class="tool-pill"><span class="tool-icon bg-[#2b579a]">W</span>Microsoft
+                                Word</span><span class="tool-pill"><span
+                                    class="tool-icon bg-[#217346]">X</span>Microsoft Excel</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#10a37f]">AI</span>ChatGPT / AI
+                                Tools</span><span class="tool-pill"><span class="tool-icon bg-[#8e75d1]">✦</span>Gemini
+                                AI</span><span class="tool-pill"><span
+                                    class="tool-icon bg-black border border-white/40">N</span>Notion</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#7b61ff]">◆</span>ClickUp</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#18bfff]">◈</span>Airtable</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#ff2d20]">L</span>Laravel</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#00758f]">My</span>MySQL</span><span
+                                class="tool-pill"><span
+                                    class="tool-icon bg-[#61dafb] text-slate-900">R</span>React</span>
+                        </div>
+                        <div class="tools-group" aria-hidden="true">
+                            <span class="tool-pill"><span class="tool-icon bg-[#2b579a]">W</span>Microsoft
+                                Word</span><span class="tool-pill"><span
+                                    class="tool-icon bg-[#217346]">X</span>Microsoft Excel</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#10a37f]">AI</span>ChatGPT / AI
+                                Tools</span><span class="tool-pill"><span class="tool-icon bg-[#8e75d1]">✦</span>Gemini
+                                AI</span><span class="tool-pill"><span
+                                    class="tool-icon bg-black border border-white/40">N</span>Notion</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#7b61ff]">◆</span>ClickUp</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#18bfff]">◈</span>Airtable</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#ff2d20]">L</span>Laravel</span><span
+                                class="tool-pill"><span class="tool-icon bg-[#00758f]">My</span>MySQL</span><span
+                                class="tool-pill"><span
+                                    class="tool-icon bg-[#61dafb] text-slate-900">R</span>React</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="hidden">
                 <div>
-                    <h2 class="text-4xl font-heading font-bold text-white mb-4">What I <span class="bg-gradient-to-r from-slate-400 to-slate-600 bg-clip-text text-transparent">Do</span></h2>
-                    <p class="text-slate-400 max-w-md font-light">I build scalable applications, craft seamless user experiences, and provide reliable IT and tech support.</p>
+                    <h2 class="text-4xl font-heading font-bold text-white mb-4">What I <span
+                            class="bg-gradient-to-r from-slate-400 to-slate-600 bg-clip-text text-transparent">Do</span>
+                    </h2>
+                    <p class="text-slate-400 max-w-md font-light">I build scalable applications, craft seamless user
+                        experiences, and provide reliable IT and tech support.</p>
                 </div>
-                <div class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6 shadow-[0_1px_0_rgba(255,255,255,0.05)]"></div>
+                <div
+                    class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6 shadow-[0_1px_0_rgba(255,255,255,0.05)]">
+                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 sm:mt-20">
-                
-                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-indigo-500/30 transition duration-500 group shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
-                        <svg class="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors">Core Backend</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">Laravel</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">MySQL</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">REST API</span>
-                    </div>
-                </div>
 
-                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-sky-500/30 transition duration-500 group shadow-lg hover:shadow-sky-500/10 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-sky-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sky-500/20 group-hover:scale-110 transition-all duration-300">
-                        <svg class="w-7 h-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-sky-300 transition-colors">Client Side</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">Vue.js</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">React</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">Tailwind</span>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-emerald-500/30 transition duration-500 group shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">
-                        <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-emerald-300 transition-colors">Mobile & AI</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">Kotlin</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">OpenAI API</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">Rasa Pro</span>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-amber-500/30 transition duration-500 group shadow-lg hover:shadow-amber-500/10 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 group-hover:scale-110 transition-all duration-300">
-                        <svg class="w-7 h-7 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <div
+                    class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-indigo-500/30 transition duration-500 group shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-amber-300 transition-colors">Tech Support</h3>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors">Core
+                        Backend</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-amber-300 font-mono shadow-sm">Troubleshooting</span>
-                        <span class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-amber-300 font-mono shadow-sm">Networking</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">Laravel</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">MySQL</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-indigo-300 font-mono shadow-sm">REST
+                            API</span>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-sky-500/30 transition duration-500 group shadow-lg hover:shadow-sky-500/10 hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 bg-sky-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sky-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-sky-300 transition-colors">Client Side
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">Vue.js</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">React</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-sky-300 font-mono shadow-sm">Tailwind</span>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-emerald-500/30 transition duration-500 group shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-emerald-300 transition-colors">Mobile
+                        & AI</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">Kotlin</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">OpenAI
+                            API</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-emerald-300 font-mono shadow-sm">Rasa
+                            Pro</span>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-amber-500/30 transition duration-500 group shadow-lg hover:shadow-amber-500/10 hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-amber-300 transition-colors">Tech
+                        Support</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-amber-300 font-mono shadow-sm">Troubleshooting</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-700 text-xs text-amber-300 font-mono shadow-sm">Networking</span>
                     </div>
                 </div>
 
@@ -283,10 +533,15 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                 <div>
-                    <h2 class="text-4xl font-heading font-bold text-white mb-4">My <span class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Experience</span></h2>
-                    <p class="text-slate-400 max-w-2xl font-light">My IT journey continues to grow through new projects and roles.</p>
+                    <h2 class="text-4xl font-heading font-bold text-white mb-4">My <span
+                            class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Experience</span>
+                    </h2>
+                    <p class="text-slate-400 max-w-2xl font-light">My IT journey continues to grow through new projects
+                        and roles.</p>
                 </div>
-                <div class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6 shadow-[0_1px_0_rgba(255,255,255,0.05)]"></div>
+                <div
+                    class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6 shadow-[0_1px_0_rgba(255,255,255,0.05)]">
+                </div>
             </div>
 
             <div class="bg-slate-900/50 border border-white/10 rounded-3xl p-8 lg:p-10 shadow-xl">
@@ -298,7 +553,8 @@
                             <span class="text-slate-400">(IT Department Head)</span>
                         </p>
                     </div>
-                    <span class="inline-flex w-fit px-4 py-1.5 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-widest border border-accent-500/20">
+                    <span
+                        class="inline-flex w-fit px-4 py-1.5 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-widest border border-accent-500/20">
                         Internship Experience
                     </span>
                 </div>
@@ -306,15 +562,18 @@
                 <ul class="space-y-4 text-slate-300">
                     <li class="flex items-start gap-3">
                         <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400 shrink-0"></span>
-                        <p>Built a <span class="text-white font-medium">Class Management System</span> with the team.</p>
+                        <p>Built a <span class="text-white font-medium">Class Management System</span> with the team.
+                        </p>
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400 shrink-0"></span>
-                        <p>Managed and supported the <span class="text-white font-medium">Learning Management System (LMS)</span>.</p>
+                        <p>Managed and supported the <span class="text-white font-medium">Learning Management System
+                                (LMS)</span>.</p>
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400 shrink-0"></span>
-                        <p>Assisted the supervisor with day-to-day <span class="text-white font-medium">IT-related tasks and technical concerns</span>.</p>
+                        <p>Assisted the supervisor with day-to-day <span class="text-white font-medium">IT-related tasks
+                                and technical concerns</span>.</p>
                     </li>
                 </ul>
             </div>
@@ -323,97 +582,157 @@
 
     <section id="projects" class="py-24 bg-slate-900/50 relative overflow-hidden reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="text-4xl font-heading font-bold text-white mb-16 text-center relative z-10">Featured <span class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Work</span></h2>
+            <h2 class="text-4xl font-heading font-bold text-white mb-16 text-center relative z-10">Featured <span
+                    class="bg-gradient-to-r from-accent-400 to-indigo-400 bg-clip-text text-transparent">Work</span>
+            </h2>
 
-            <div class="relative bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700/60 z-10 group/card">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-500 via-indigo-500 to-purple-600 z-30"></div>
-                
-                <div class="absolute top-1 inset-x-0 h-10 bg-slate-950/95 border-b border-slate-800/80 flex items-center px-5 gap-2 z-20 pointer-events-none">
+            <div
+                class="relative bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700/60 z-10 group/card">
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-500 via-indigo-500 to-purple-600 z-30">
+                </div>
+
+                <div
+                    class="absolute top-1 inset-x-0 h-10 bg-slate-950/95 border-b border-slate-800/80 flex items-center px-5 gap-2 z-20 pointer-events-none">
                     <div class="w-3 h-3 rounded-full bg-rose-500/90 shadow-[0_0_5px_rgba(244,63,94,0.4)]"></div>
                     <div class="w-3 h-3 rounded-full bg-amber-500/90 shadow-[0_0_5px_rgba(245,158,11,0.4)]"></div>
                     <div class="w-3 h-3 rounded-full bg-emerald-500/90 shadow-[0_0_5px_rgba(16,185,129,0.4)]"></div>
-                    <div class="ml-3 px-2.5 py-1 rounded text-[10px] font-mono text-slate-400 bg-slate-900 border border-slate-800 hidden sm:block">mhloucare.site</div>
+                    <div
+                        class="ml-3 px-2.5 py-1 rounded text-[10px] font-mono text-slate-400 bg-slate-900 border border-slate-800 hidden sm:block">
+                        mhloucare.site</div>
                 </div>
 
                 <div class="absolute top-11 inset-x-0 bottom-0 z-0 bg-slate-950 overflow-hidden pointer-events-none">
-                    <img src="images/adminweb.png" alt="Admin Dashboard" class="w-full h-full object-cover object-left-top opacity-100 transition-transform duration-1000 group-hover/card:scale-105">
+                    <img src="images/adminweb.png" alt="Admin Dashboard"
+                        class="w-full h-full object-cover object-left-top opacity-100 transition-transform duration-1000 group-hover/card:scale-105">
                 </div>
 
-                <div class="absolute top-11 inset-x-0 bottom-0 z-0 bg-gradient-to-b lg:bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40 lg:to-transparent w-full lg:w-[70%] h-[60%] lg:h-full pointer-events-none"></div>
-                
-                <div class="absolute top-11 inset-x-0 bottom-0 z-0 backdrop-blur-[2px] [-webkit-mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,black_50%,transparent_80%)] [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] lg:[mask-image:linear-gradient(to_right,black_50%,transparent_80%)] pointer-events-none"></div>
+                <div
+                    class="absolute top-11 inset-x-0 bottom-0 z-0 bg-gradient-to-b lg:bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40 lg:to-transparent w-full lg:w-[70%] h-[60%] lg:h-full pointer-events-none">
+                </div>
+
+                <div
+                    class="absolute top-11 inset-x-0 bottom-0 z-0 backdrop-blur-[2px] [-webkit-mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,black_50%,transparent_80%)] [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] lg:[mask-image:linear-gradient(to_right,black_50%,transparent_80%)] pointer-events-none">
+                </div>
 
                 <div class="grid lg:grid-cols-12 relative z-10 min-h-[600px] pt-11 pointer-events-none">
-                    
-                    <div class="lg:col-span-6 xl:col-span-5 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-center pointer-events-auto pb-12 lg:pb-16 z-20">
+
+                    <div
+                        class="lg:col-span-6 xl:col-span-5 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-center pointer-events-auto pb-12 lg:pb-16 z-20">
                         <div class="flex items-center gap-3 mb-4 sm:mb-6 mt-4 lg:mt-0">
-                            <span class="px-4 py-1.5 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-widest border border-accent-500/20 shadow-inner backdrop-blur-sm">Capstone 2026</span>
+                            <span
+                                class="px-4 py-1.5 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-widest border border-accent-500/20 shadow-inner backdrop-blur-sm">Capstone
+                                2026</span>
                         </div>
 
-                        <h3 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-4 sm:mb-6 tracking-tight drop-shadow-lg">Health Assessment with AI</h3>
-                        
-                        <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 font-light drop-shadow-md bg-slate-950/40 lg:bg-slate-950/20 rounded-lg p-3 lg:p-2 -ml-2 backdrop-blur-sm lg:backdrop-blur-[1px]">
-                            A secure, comprehensive platform for college students to evaluate anxiety and depression. 
-                            Features a <strong class="text-white drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] font-medium">Rasa Pro AI chatbot</strong> for initial screening, 
-                            perfectly synchronized with a robust <strong class="text-white font-medium">Laravel Admin Dashboard</strong>.
+                        <h3
+                            class="text-3xl sm:text-4xl font-heading font-bold text-white mb-4 sm:mb-6 tracking-tight drop-shadow-lg">
+                            Health Assessment with AI</h3>
+
+                        <p
+                            class="text-slate-200 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 font-light drop-shadow-md bg-slate-950/40 lg:bg-slate-950/20 rounded-lg p-3 lg:p-2 -ml-2 backdrop-blur-sm lg:backdrop-blur-[1px]">
+                            A secure, comprehensive platform for college students to evaluate anxiety and depression.
+                            Features a <strong
+                                class="text-white drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] font-medium">Rasa Pro AI
+                                chatbot</strong> for initial screening,
+                            perfectly synchronized with a robust <strong class="text-white font-medium">Laravel Admin
+                                Dashboard</strong>.
                         </p>
 
-                        <div class="mb-6 sm:mb-8 rounded-2xl border border-amber-400/20 bg-amber-400/10 p-4 shadow-lg shadow-amber-500/5">
+                        <div
+                            class="mb-6 sm:mb-8 rounded-2xl border border-amber-400/20 bg-amber-400/10 p-4 shadow-lg shadow-amber-500/5">
                             <p class="text-[11px] font-mono uppercase tracking-widest text-amber-300 mb-3">Awarded</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 rounded-full bg-slate-950/70 border border-amber-300/30 text-xs font-semibold text-amber-100">Capstone Project of the Year Award</span>
-                                <span class="px-3 py-1.5 rounded-full bg-slate-950/70 border border-amber-300/30 text-xs font-semibold text-amber-100">Panelist's Choice Award</span>
-                                <span class="px-3 py-1.5 rounded-full bg-slate-950/70 border border-amber-300/30 text-xs font-semibold text-amber-100">Best in Presentation Award</span>
+                                <span
+                                    class="px-3 py-1.5 rounded-full bg-slate-950/70 border border-amber-300/30 text-xs font-semibold text-amber-100">Capstone
+                                    Project of the Year Award</span>
+                                <span
+                                    class="px-3 py-1.5 rounded-full bg-slate-950/70 border border-amber-300/30 text-xs font-semibold text-amber-100">Panelist's
+                                    Choice Award</span>
+                                <span
+                                    class="px-3 py-1.5 rounded-full bg-slate-950/70 border border-amber-300/30 text-xs font-semibold text-amber-100">Best
+                                    in Presentation Award</span>
                             </div>
                         </div>
 
                         <div class="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10">
-                            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-100 bg-slate-900/90 px-3 sm:px-4 py-2 rounded-xl border border-slate-600 shadow-lg font-medium backdrop-blur-md"><span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span> Laravel</div>
-                            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-100 bg-slate-900/90 px-3 sm:px-4 py-2 rounded-xl border border-slate-600 shadow-lg font-medium backdrop-blur-md"><span class="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span> Kotlin</div>
-                            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-100 bg-slate-900/90 px-3 sm:px-4 py-2 rounded-xl border border-slate-600 shadow-lg font-medium backdrop-blur-md"><span class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span> Rasa Pro</div>
+                            <div
+                                class="flex items-center gap-2 text-xs sm:text-sm text-slate-100 bg-slate-900/90 px-3 sm:px-4 py-2 rounded-xl border border-slate-600 shadow-lg font-medium backdrop-blur-md">
+                                <span
+                                    class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+                                Laravel</div>
+                            <div
+                                class="flex items-center gap-2 text-xs sm:text-sm text-slate-100 bg-slate-900/90 px-3 sm:px-4 py-2 rounded-xl border border-slate-600 shadow-lg font-medium backdrop-blur-md">
+                                <span
+                                    class="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
+                                Kotlin</div>
+                            <div
+                                class="flex items-center gap-2 text-xs sm:text-sm text-slate-100 bg-slate-900/90 px-3 sm:px-4 py-2 rounded-xl border border-slate-600 shadow-lg font-medium backdrop-blur-md">
+                                <span
+                                    class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
+                                Rasa Pro</div>
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-                            <a href="https://mhloucare.site" target="_blank" class="w-full sm:w-auto justify-center px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 flex items-center gap-2 hover:-translate-y-1">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> 
+                            <a href="https://mhloucare.site" target="_blank"
+                                class="w-full sm:w-auto justify-center px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 flex items-center gap-2 hover:-translate-y-1">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
                                 Live Demo
                             </a>
-                            <a href="https://github.com/NotLowii" target="_blank" class="w-full sm:w-auto justify-center px-6 py-3.5 border-2 border-slate-400 text-white hover:text-white hover:border-slate-300 hover:bg-slate-800/80 rounded-xl font-semibold transition-all hover:-translate-y-1 backdrop-blur-md bg-slate-900/80">
+                            <a href="https://github.com/NotLowii" target="_blank"
+                                class="w-full sm:w-auto justify-center px-6 py-3.5 border-2 border-slate-400 text-white hover:text-white hover:border-slate-300 hover:bg-slate-800/80 rounded-xl font-semibold transition-all hover:-translate-y-1 backdrop-blur-md bg-slate-900/80">
                                 Source Code
                             </a>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-6 xl:col-span-7 relative flex items-center justify-center min-h-[450px] lg:min-h-full pb-10 lg:pb-0 pointer-events-auto">
-                        
-                        
-                        <div id="open-admin-modal" class="absolute top-4 right-4 sm:top-6 sm:right-6 cursor-pointer z-50 pointer-events-auto group" title="Click to view full dashboard">
-                            <div class="bg-slate-900/80 hover:bg-slate-900 text-white px-4 sm:px-5 py-2.5 text-xs sm:text-sm rounded-full font-bold flex items-center gap-2 shadow-[0_0_20px_rgba(14,165,233,0.3)] border border-accent-500/50 backdrop-blur-md transition-all group-hover:scale-105">
-                                <svg class="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                    <div
+                        class="lg:col-span-6 xl:col-span-7 relative flex items-center justify-center min-h-[450px] lg:min-h-full pb-10 lg:pb-0 pointer-events-auto">
+
+
+                        <div id="open-admin-modal"
+                            class="absolute top-4 right-4 sm:top-6 sm:right-6 cursor-pointer z-50 pointer-events-auto group"
+                            title="Click to view full dashboard">
+                            <div
+                                class="bg-slate-900/80 hover:bg-slate-900 text-white px-4 sm:px-5 py-2.5 text-xs sm:text-sm rounded-full font-bold flex items-center gap-2 shadow-[0_0_20px_rgba(14,165,233,0.3)] border border-accent-500/50 backdrop-blur-md transition-all group-hover:scale-105">
+                                <svg class="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                </svg>
                                 <span class="hidden sm:inline">View Admin</span>
                             </div>
                         </div>
 
-                        
-                        <div class="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] h-[300px] sm:h-[400px] lg:h-[480px] mx-auto flex justify-center items-center mt-8 lg:mt-0 perspective-[1200px] z-20">
-                            <div class="absolute inset-0 bg-emerald-500/20 dark:bg-emerald-500/10 blur-[80px] rounded-[100%] pointer-events-none"></div>
+
+                        <div
+                            class="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] h-[300px] sm:h-[400px] lg:h-[480px] mx-auto flex justify-center items-center mt-8 lg:mt-0 perspective-[1200px] z-20">
+                            <div
+                                class="absolute inset-0 bg-emerald-500/20 dark:bg-emerald-500/10 blur-[80px] rounded-[100%] pointer-events-none">
+                            </div>
 
                             <!-- Left Image: Menu -->
                             <div onclick="openLightbox('images/ACC-Care-Menu.jpg')"
-                                 class="app-mockup group absolute left-0 sm:left-[2%] lg:-left-2 w-[45%] z-10 -rotate-6 scale-[0.85] translate-y-8 cursor-pointer hover:z-40 hover:scale-100 hover:-rotate-2 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] rounded-[1.5rem] sm:rounded-[2rem] transition-all duration-300">
-                                <img src="images/ACC-Care-Menu.jpg" alt="Menu" class="w-full rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/40 dark:border-slate-600 transition-all group-hover:brightness-110">
+                                class="app-mockup group absolute left-0 sm:left-[2%] lg:-left-2 w-[45%] z-10 -rotate-6 scale-[0.85] translate-y-8 cursor-pointer hover:z-40 hover:scale-100 hover:-rotate-2 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] rounded-[1.5rem] sm:rounded-[2rem] transition-all duration-300">
+                                <img src="images/ACC-Care-Menu.jpg" alt="Menu"
+                                    class="w-full rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/40 dark:border-slate-600 transition-all group-hover:brightness-110">
                             </div>
 
                             <!-- Right Image: AI Chatbot -->
                             <div onclick="openLightbox('images/ACC-Care-Chat.jpg')"
-                                 class="app-mockup group absolute right-0 sm:right-[2%] lg:-right-2 w-[45%] z-10 rotate-6 scale-[0.85] translate-y-12 cursor-pointer hover:z-40 hover:scale-100 hover:rotate-2 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] rounded-[1.5rem] sm:rounded-[2rem] transition-all duration-300">
-                                <img src="images/ACC-Care-Chat.jpg" alt="Chat" class="w-full rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/40 dark:border-slate-600 transition-all group-hover:brightness-110">
+                                class="app-mockup group absolute right-0 sm:right-[2%] lg:-right-2 w-[45%] z-10 rotate-6 scale-[0.85] translate-y-12 cursor-pointer hover:z-40 hover:scale-100 hover:rotate-2 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] rounded-[1.5rem] sm:rounded-[2rem] transition-all duration-300">
+                                <img src="images/ACC-Care-Chat.jpg" alt="Chat"
+                                    class="w-full rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/40 dark:border-slate-600 transition-all group-hover:brightness-110">
                             </div>
 
                             <!-- Center Image: Dashboard -->
                             <div onclick="openLightbox('images/ACC-Care-Dashboard.jpg')"
-                                 class="app-mockup group absolute z-30 w-[55%] sm:w-[52%] cursor-pointer hover:scale-110 hover:-translate-y-4 hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] rounded-[2rem] sm:rounded-[2.5rem] transition-all duration-300">
-                                <img src="images/ACC-Care-Dashboard.jpg" alt="Main Screen" class="w-full rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.4)] border-2 border-white/50 dark:border-emerald-500/40 transition-all group-hover:brightness-105">
+                                class="app-mockup group absolute z-30 w-[55%] sm:w-[52%] cursor-pointer hover:scale-110 hover:-translate-y-4 hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] rounded-[2rem] sm:rounded-[2.5rem] transition-all duration-300">
+                                <img src="images/ACC-Care-Dashboard.jpg" alt="Main Screen"
+                                    class="w-full rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.4)] border-2 border-white/50 dark:border-emerald-500/40 transition-all group-hover:brightness-105">
                             </div>
                         </div>
 
@@ -423,47 +742,77 @@
             </div>
 
             <div class="flex justify-center mt-8">
-                <a href="more-work.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-slate-600/70 text-slate-300 text-xs sm:text-sm font-semibold tracking-widest uppercase hover:text-white hover:border-accent-400/70 hover:bg-accent-400/10 transition-all">
+                <a href="more-work.html"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-slate-600/70 text-slate-300 text-xs sm:text-sm font-semibold tracking-widest uppercase hover:text-white hover:border-accent-400/70 hover:bg-accent-400/10 transition-all">
                     More Work
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                 </a>
             </div>
 
         </div>
 
         <!-- LIGHTBOX EXPANSION MODAL -->
-        <div id="image-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/95 backdrop-blur-md opacity-0 transition-opacity duration-300">
-            <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-300 hover:text-white bg-slate-800/50 hover:bg-slate-700/50 rounded-full p-2.5 backdrop-blur-md transition-all z-10">
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <div id="image-lightbox"
+            class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/95 backdrop-blur-md opacity-0 transition-opacity duration-300">
+            <button onclick="closeLightbox()"
+                class="absolute top-6 right-6 text-slate-300 hover:text-white bg-slate-800/50 hover:bg-slate-700/50 rounded-full p-2.5 backdrop-blur-md transition-all z-10">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
             </button>
             <div class="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center p-4">
-                <img id="lightbox-img" src="" alt="Full View" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-slate-700/50 transform scale-95 transition-transform duration-300">
+                <img id="lightbox-img" src="" alt="Full View"
+                    class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-slate-700/50 transform scale-95 transition-transform duration-300">
             </div>
         </div>
     </section>
 
     <footer id="contact" class="border-t border-slate-800/50 bg-slate-950 pt-24 pb-12 reveal">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">Ready to create something amazing?</h2>
-            <p class="text-slate-400 mb-12 text-lg font-light">Currently open for junior developer and IT opportunities.</p>
-            
-            <a href="mailto:cabardolouie@gmail.com" class="inline-flex items-center gap-3 text-xl md:text-3xl font-bold text-accent-400 hover:text-accent-300 transition-colors border-b-2 border-accent-500/30 hover:border-accent-400 pb-2 mb-16 group">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">Ready to create something amazing?
+            </h2>
+            <p class="text-slate-400 mb-12 text-lg font-light">Currently open for junior developer and IT opportunities.
+            </p>
+
+            <a href="mailto:cabardolouie@gmail.com"
+                class="inline-flex items-center gap-3 text-xl md:text-3xl font-bold text-accent-400 hover:text-accent-300 transition-colors border-b-2 border-accent-500/30 hover:border-accent-400 pb-2 mb-16 group">
                 cabardolouie@gmail.com
-                <svg class="w-6 h-6 md:w-8 md:h-8 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <svg class="w-6 h-6 md:w-8 md:h-8 transform group-hover:translate-x-1 transition-transform" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
             </a>
 
             <div class="flex justify-center gap-8 mb-12">
-                <a href="https://github.com/NotLowii" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
+                <a href="https://github.com/NotLowii"
+                    class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
                     <span class="sr-only">GitHub</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/louie-cabardo-b31977358/" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
+                <a href="https://www.linkedin.com/in/louiecabardo"
+                    class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
                     <span class="sr-only">LinkedIn</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <a href="https://www.facebook.com/trfg.lowi" class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
+                <a href="https://www.facebook.com/trfg.lowi"
+                    class="text-slate-500 hover:text-white hover:-translate-y-1 transition-all duration-300 bg-slate-900 p-4 rounded-full border border-slate-800 hover:border-slate-600 shadow-lg">
                     <span class="sr-only">Facebook</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
                 </a>
             </div>
 
@@ -473,18 +822,24 @@
         </div>
     </footer>
 
-    <div id="image-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-950/95 backdrop-blur-md opacity-0 transition-opacity duration-300">
-        <button id="close-modal" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition-all focus:outline-none">
-            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    <div id="image-modal"
+        class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-950/95 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <button id="close-modal"
+            class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition-all focus:outline-none">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
         </button>
-        <div class="max-w-[95vw] lg:max-w-[85vw] max-h-[90vh] relative transform scale-95 transition-transform duration-300" id="modal-content">
+        <div class="max-w-[95vw] lg:max-w-[85vw] max-h-[90vh] relative transform scale-95 transition-transform duration-300"
+            id="modal-content">
             <div class="bg-slate-900 rounded-t-xl px-4 py-3 border border-slate-700 border-b-0 flex items-center gap-2">
                 <div class="w-3 h-3 rounded-full bg-rose-500"></div>
                 <div class="w-3 h-3 rounded-full bg-amber-500"></div>
                 <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                 <span class="ml-4 text-xs font-mono text-slate-400 hidden sm:block">mhloucare.site/admin</span>
             </div>
-            <img src="images/adminweb.png" alt="Admin Dashboard Full View" class="w-full h-auto max-h-[80vh] object-cover sm:object-contain rounded-b-xl shadow-2xl border border-slate-700">
+            <img src="images/adminweb.png" alt="Admin Dashboard Full View"
+                class="w-full h-auto max-h-[80vh] object-cover sm:object-contain rounded-b-xl shadow-2xl border border-slate-700">
         </div>
     </div>
 
@@ -589,7 +944,7 @@
 
         openBtn.addEventListener('click', openModal);
         closeBtn.addEventListener('click', closeModal);
-        
+
         // Close modal when clicking outside the image or pressing ESC key
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
@@ -605,11 +960,11 @@
         function openLightbox(src) {
             const lightbox = document.getElementById('image-lightbox');
             const img = document.getElementById('lightbox-img');
-            
+
             img.src = src;
             lightbox.classList.remove('hidden');
             lightbox.classList.add('flex');
-            
+
             // Brief timeout to allow flexbox to apply before fading in
             setTimeout(() => {
                 lightbox.classList.remove('opacity-0');
@@ -621,24 +976,25 @@
         function closeLightbox() {
             const lightbox = document.getElementById('image-lightbox');
             const img = document.getElementById('lightbox-img');
-            
+
             lightbox.classList.add('opacity-0');
             img.classList.remove('scale-100');
             img.classList.add('scale-95');
-            
+
             setTimeout(() => {
                 lightbox.classList.add('hidden');
                 lightbox.classList.remove('flex');
-                img.src = ''; 
+                img.src = '';
             }, 300);
         }
 
         // Close when clicking outside the image
-        document.getElementById('image-lightbox').addEventListener('click', function(e) {
+        document.getElementById('image-lightbox').addEventListener('click', function (e) {
             if (e.target === this || e.target.closest('.p-4') === e.target) {
                 closeLightbox();
             }
         });
     </script>
 </body>
+
 </html>
