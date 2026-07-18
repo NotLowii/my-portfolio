@@ -54,6 +54,17 @@
         /* Smooth Reveal Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Tools marquee */
+        .tools-marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+        .tools-track { display: flex; width: max-content; animation: tools-scroll 32s linear infinite; }
+        .tools-track--reverse { animation-direction: reverse; animation-duration: 38s; }
+        .tools-marquee:hover .tools-track { animation-play-state: paused; }
+        .tools-group { display: flex; gap: 16px; padding-right: 16px; }
+        .tool-pill { display: inline-flex; align-items: center; gap: 11px; white-space: nowrap; padding: 12px 22px; border: 1px solid rgba(14, 165, 233, .28); border-radius: 999px; background: rgba(15, 30, 55, .82); color: #8fb4d8; font-size: 15px; font-weight: 600; box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 8px 24px rgba(2,6,23,.24); }
+        .tool-icon { display: inline-flex; width: 25px; height: 25px; align-items: center; justify-content: center; border-radius: 7px; color: white; font-family: Arial, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: -.5px; }
+        @keyframes tools-scroll { to { transform: translateX(-50%); } }
+        @media (prefers-reduced-motion: reduce) { .tools-track { animation: none; } }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white overflow-x-hidden">
@@ -183,9 +194,28 @@
         </div>
     </section>
 
-    <section id="skills" class="py-24 relative reveal">
+    <section id="skills" class="py-24 sm:py-32 relative overflow-hidden reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div class="relative text-center mb-20">
+                <p class="inline-flex items-center gap-3 text-xs text-teal-400 font-bold uppercase tracking-[0.35em] mb-4"><span class="w-7 h-0.5 bg-teal-400"></span> My Arsenal</p>
+                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-slate-100 tracking-tight">TOOLS I MASTER</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mt-6 text-base sm:text-lg leading-relaxed">The industry-standard platforms I use to build, support, and deliver reliable digital experiences.</p>
+            </div>
+
+            <div class="relative -mx-6 lg:-mx-8 space-y-4">
+                <div class="tools-marquee"><div class="tools-track"><div class="tools-group">
+                    <span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Docs</span><span class="tool-pill"><span class="tool-icon bg-[#ea4335]">M</span>Gmail</span><span class="tool-pill"><span class="tool-icon bg-[#2d8cff] text-[8px]">ZOOM</span>Zoom</span><span class="tool-pill"><span class="tool-icon bg-[#15b77a]">G</span>Grammarly</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">△</span>Google Drive</span><span class="tool-pill"><span class="tool-icon bg-[#34a853]">▦</span>Google Sheets</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Workspace</span><span class="tool-pill"><span class="tool-icon bg-[#2f80ed]">&lt;/&gt;</span>Visual Studio Code</span><span class="tool-pill"><span class="tool-icon bg-[#3ddc84] text-slate-900">A</span>Android Studio SDK</span>
+                </div><div class="tools-group" aria-hidden="true">
+                    <span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Docs</span><span class="tool-pill"><span class="tool-icon bg-[#ea4335]">M</span>Gmail</span><span class="tool-pill"><span class="tool-icon bg-[#2d8cff] text-[8px]">ZOOM</span>Zoom</span><span class="tool-pill"><span class="tool-icon bg-[#15b77a]">G</span>Grammarly</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">△</span>Google Drive</span><span class="tool-pill"><span class="tool-icon bg-[#34a853]">▦</span>Google Sheets</span><span class="tool-pill"><span class="tool-icon bg-[#4285f4]">D</span>Google Workspace</span><span class="tool-pill"><span class="tool-icon bg-[#2f80ed]">&lt;/&gt;</span>Visual Studio Code</span><span class="tool-pill"><span class="tool-icon bg-[#3ddc84] text-slate-900">A</span>Android Studio SDK</span>
+                </div></div></div>
+                <div class="tools-marquee"><div class="tools-track tools-track--reverse"><div class="tools-group">
+                    <span class="tool-pill"><span class="tool-icon bg-[#2b579a]">W</span>Microsoft Word</span><span class="tool-pill"><span class="tool-icon bg-[#217346]">X</span>Microsoft Excel</span><span class="tool-pill"><span class="tool-icon bg-[#10a37f]">AI</span>ChatGPT / AI Tools</span><span class="tool-pill"><span class="tool-icon bg-[#8e75d1]">✦</span>Gemini AI</span><span class="tool-pill"><span class="tool-icon bg-black border border-white/40">N</span>Notion</span><span class="tool-pill"><span class="tool-icon bg-[#7b61ff]">◆</span>ClickUp</span><span class="tool-pill"><span class="tool-icon bg-[#18bfff]">◈</span>Airtable</span><span class="tool-pill"><span class="tool-icon bg-[#ff2d20]">L</span>Laravel</span><span class="tool-pill"><span class="tool-icon bg-[#00758f]">My</span>MySQL</span><span class="tool-pill"><span class="tool-icon bg-[#61dafb] text-slate-900">R</span>React</span>
+                </div><div class="tools-group" aria-hidden="true">
+                    <span class="tool-pill"><span class="tool-icon bg-[#2b579a]">W</span>Microsoft Word</span><span class="tool-pill"><span class="tool-icon bg-[#217346]">X</span>Microsoft Excel</span><span class="tool-pill"><span class="tool-icon bg-[#10a37f]">AI</span>ChatGPT / AI Tools</span><span class="tool-pill"><span class="tool-icon bg-[#8e75d1]">✦</span>Gemini AI</span><span class="tool-pill"><span class="tool-icon bg-black border border-white/40">N</span>Notion</span><span class="tool-pill"><span class="tool-icon bg-[#7b61ff]">◆</span>ClickUp</span><span class="tool-pill"><span class="tool-icon bg-[#18bfff]">◈</span>Airtable</span><span class="tool-pill"><span class="tool-icon bg-[#ff2d20]">L</span>Laravel</span><span class="tool-pill"><span class="tool-icon bg-[#00758f]">My</span>MySQL</span><span class="tool-pill"><span class="tool-icon bg-[#61dafb] text-slate-900">R</span>React</span>
+                </div></div></div>
+            </div>
+
+            <div class="hidden">
                 <div>
                     <h2 class="text-4xl font-heading font-bold text-white mb-4">What I <span class="bg-gradient-to-r from-slate-400 to-slate-600 bg-clip-text text-transparent">Do</span></h2>
                     <p class="text-slate-400 max-w-md font-light">I build scalable applications, craft seamless user experiences, and provide reliable IT and tech support.</p>
@@ -193,7 +223,7 @@
                 <div class="h-px bg-slate-800 flex-1 ml-12 hidden md:block mb-6 shadow-[0_1px_0_rgba(255,255,255,0.05)]"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 sm:mt-20">
                 
                 <div class="bg-slate-800/40 backdrop-blur-md border border-white/5 p-8 rounded-3xl hover:border-indigo-500/30 transition duration-500 group shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1">
                     <div class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 group-hover:scale-110 transition-all duration-300">
